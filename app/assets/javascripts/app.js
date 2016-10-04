@@ -41,6 +41,11 @@ app.config(
           "index": {
             controller: 'PostCtrl',
             templateUrl: '/templates/posts/index.html'
+          },
+
+          "recent-comments": {
+            // controller: 'CommentCtrl',
+            templateUrl: '/templates/comments/index.html'
           }
         }
       });

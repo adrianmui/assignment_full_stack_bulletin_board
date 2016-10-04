@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 
+#faker
+gem 'faker'
 #angular
 gem 'angularjs-rails'
 gem 'angular_rails_csrf'
