@@ -1,4 +1,4 @@
-app.factory('PostService', ['Restangular', function(Restangular){
+app.factory('CommentService', ['Restangular', function(Restangular){
 
   var stub = {};
 
@@ -6,7 +6,7 @@ app.factory('PostService', ['Restangular', function(Restangular){
     return Restangular.all("comments").getList().$object;
   }
 
-  return stub
+  return stub;
 
 
 }])

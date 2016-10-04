@@ -44,7 +44,7 @@ app.config(
           },
 
           "recent-comments": {
-            // controller: 'CommentCtrl',
+            controller: 'CommentCtrl',
             templateUrl: '/templates/comments/index.html'
           }
         }
