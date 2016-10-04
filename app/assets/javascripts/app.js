@@ -32,11 +32,11 @@ app.config(
   ['$stateProvider', '$urlRouterProvider',
   function($stateProvider, $urlRouterProvider) {
 
-    // $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/posts');
 
     $stateProvider
       .state('posts', {
-        url: '',
+        url: '/posts',
         views: {
           "index": {
             controller: 'PostCtrl',
@@ -50,7 +50,7 @@ app.config(
         }
       })
       .state('posts.show' , {
-        url: 'posts/:postId',
+        url: '/:postId',
         views: {
           "index@" : {
             controller: 'PostShowCtrl',
