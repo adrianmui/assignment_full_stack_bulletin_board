@@ -12,7 +12,12 @@
 
 <ul>
   <div ng-repeat="post in posts | orderBy: '-created_at'">
-    <h3>{{post.title}}</h3>
+    <h3>
+      <a ui-sref='posts.show({ postId: {{post.id}} })'>
+        {{post.title}}
+      </a>
+    </h3>
+
     <p>Posted on {{post.created_at | date}} by {{post.author}}</p>
   </div>
 </ul>

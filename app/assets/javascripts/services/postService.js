@@ -19,7 +19,11 @@ app.factory('PostService', ['Restangular', function(Restangular){
 
   stub.getPosts = function(){
     return Restangular.all("posts").getList().$object;
-  }
+  };
+
+  stub.findPost = function(id) {
+    return Restangular.one("posts", id).get().$object;
+  };
 
   return stub;
 

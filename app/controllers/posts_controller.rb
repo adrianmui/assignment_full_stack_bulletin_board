@@ -18,6 +18,14 @@ class PostsController < ApplicationController
     end
   end
 
+  def show
+    @post = Post.find(params[:id]).to_json( include: :comments)
+
+    respond_to do |format|
+      format.json { render :json => @post, :status => 200}
+    end
+  end
+
 
   private
 
