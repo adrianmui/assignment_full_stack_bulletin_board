@@ -3,4 +3,11 @@ Rails.application.routes.draw do
   root to: 'static_pages#index'
 
   resources :static_pages
+
+  scope :api do
+    scope :v1 do
+      resources :posts
+    end
+  end
+  
 end

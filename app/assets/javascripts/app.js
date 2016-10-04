@@ -18,6 +18,15 @@ app.config(
       .common['X-CSRF-Token'] = token;
 }]);
 
+app.config(
+  ['RestangularProvider',
+  function(RestangularProvider) {
+
+    RestangularProvider.setBaseUrl('/api/v1');
+    RestangularProvider.setRequestSuffix('.json');
+
+  }]);
+
 // uirouter
 app.config(
   ['$stateProvider', '$urlRouterProvider',
@@ -30,7 +39,7 @@ app.config(
         url: '',
         views: {
           "index": {
-            
+            controller: 'PostCtrl',
             templateUrl: '/templates/posts/index.html'
           }
         }
