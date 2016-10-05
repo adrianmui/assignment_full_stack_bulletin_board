@@ -1,9 +1,16 @@
-RECENT COMMENTS BY ALEX
+<div class="card-header text-xs-center">
+  <h3> Recent Comments </h3>
+</div>
 
-<ul>
-  <div ng-repeat="comment in comments | orderBy: '-created_at' | limitTo: 3">
-    <p>{{comment.vote}} | {{ comment.author}}</p>
-    <p>Commented on {{ comment.created_at | date}}</p>
-    <p>"{{comment.body}}"</p>
+
+<br>
+  <div class="container-fluid">
+
+    <div class="card" ng-repeat="comment in comments | orderBy: '-created_at' | limitTo: 3">
+      <div class="card-header">
+      {{comment.vote}} | {{ comment.author}}
+      </div>
+      <p>Commented on {{ comment.created_at | date}}</p>
+      <p>"{{comment.body}}"</p>
+    </div>
   </div>
-</ul>

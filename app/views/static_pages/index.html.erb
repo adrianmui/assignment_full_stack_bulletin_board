@@ -1,9 +1,18 @@
-<h1><a href="#">Full-Stack Bulletin Board</a></h1>
+<nav class="navbar navbar-faded" style="background-color: #ADD8E6; border-bottom: solid 1px white">
+  <h1><a href="#" style="color: #2f4f4f">Full-Stack Bulletin Board</a></h1>
+</nav>
+
+<br>
 
 <div class="container-fluid">
 
-  <div class="col-xs-4 card" ui-view="recent-comments"></div>
-  <div class="col-xs-8 card" ui-view="index"></div>
+  <div class="col-xs-4">
+    <div class="col-xs-12 card" style="padding:0px;">
+      <div ui-view="recent-comments"> </div>
+    </div>
+  </div>
+
+  <div class="col-xs-8 card" style="padding:0px" ui-view="index"></div>
 
 </div>
 

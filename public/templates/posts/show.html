@@ -20,12 +20,12 @@
       <input type="text" name="author" ng-model="commentParams.author"><br>
       <label for="comment">Comment: </label>
       <input type="text" name="comment" ng-model="commentParams.body"><br>
-      <input type="submit" class="btn btn-outline-info btn-lg" value="Submit">
+      <input type="submit" class="col-xs-4 btn btn-outline-success btn-md" value="Submit">
     </form>
   </div>
 </div>
 
-<ul>
+<ul class="bg-faded" style="margin: 20px">
   <div ng-repeat="comment in post.comments | orderBy: '-created_at'">
     <p>{{comment.vote}} | {{ comment.author}}</p>
     <p>Commented on {{ comment.created_at | date}}</p>
