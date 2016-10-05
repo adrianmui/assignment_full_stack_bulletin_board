@@ -9,13 +9,26 @@
     <p> Posted on {{post.created_at | date }} by {{post.author }}</p>
   </div>
 
-  <div class="car-block bg-faded">
+  <div class="card-block bg-faded">
     <p> {{post.body}}</p>
+  </div>
+
+  <div class="card-block">
+    <h4>Create a Comment</h4>
+    <form name="newComment" ng-submit="createComment()">
+      <label for="title">Author: </label>
+      <input type="text" name="author" ng-model="commentParams.author"><br>
+      <label for="comment">Comment: </label>
+      <input type="text" name="comment" ng-model="commentParams.body"><br>
+      <input type="submit" class="btn btn-outline-info btn-lg" value="Submit">
+    </form>
   </div>
 </div>
 
 <ul>
-
-
-
+  <div ng-repeat="comment in post.comments | orderBy: '-created_at'">
+    <p>{{comment.vote}} | {{ comment.author}}</p>
+    <p>Commented on {{ comment.created_at | date}}</p>
+    <p>"{{comment.body}}"</p>
+  </div>
 </ul>

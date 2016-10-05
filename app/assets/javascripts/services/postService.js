@@ -2,6 +2,8 @@ app.factory('PostService', ['Restangular', function(Restangular){
 
   var stub = {};
 
+  var _posts;
+
   var _createPost = function(params) {
     return Restangular.all("posts").post({
       post: {
@@ -22,7 +24,7 @@ app.factory('PostService', ['Restangular', function(Restangular){
   };
 
   stub.findPost = function(id) {
-    return Restangular.one("posts", id).get().$object;
+    return Restangular.one("posts", id).get();
   };
 
   return stub;
