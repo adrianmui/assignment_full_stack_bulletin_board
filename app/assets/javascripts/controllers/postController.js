@@ -1,15 +1,16 @@
 app.controller('PostCtrl', ['PostService', '$scope', function(PostService, $scope){
 
   console.log("Post controller says hi")
-  $scope.posts = PostService.getPosts();
+
+  PostService.all().then( function() {
+    $scope.posts = PostService.get();
+  })
   $scope.postParams = {};
 
   $scope.createPost = function() {
     $scope.posts.create($scope.postParams)
-      .then(function(response){
-        $scope.posts.unshift(response);
+      .then(function(){
         $scope.postParams = {};
       });
-  }
-
+  };
 }])

@@ -3,6 +3,9 @@ app.controller('CommentCtrl',
   function($scope, CommentService){
 
   console.log("Comment controller says hi");
-  $scope.comments = CommentService.getComments();
+  
+  CommentService.all().then( function(){
+    $scope.comments = CommentService.get();
+  });
 
 }])

@@ -1,32 +1,30 @@
 app.controller('PostShowCtrl', 
-  ['PostService', '$scope', '$stateParams',
-  function(PostService, $scope, $stateParams){
+  ['PostService', '$scope', '$stateParams', 'Restangular',
+  function(PostService, $scope, $stateParams, Restangular){
 
   console.log("Post.Show controller says hi")
   
-  PostService.findPost($stateParams.postId)
+  PostService.find($stateParams.postId)
     .then(function(response){
       $scope.post = response;
-      console.log($scope.post);
-      console.log($scope.post.comments); 
+      console.log(response);
+      console.log(response.comments)
+      $scope.comments = response.comments;
     });
 
   $scope.commentParams = {
-    postId: $stateParams.postId
+    
   }
 
-  
-
- 
   $scope.createComment = function(){
-    $scope.post.comments.create({
+    $scope.post.createComment({
       author: $scope.commentParams.author,
       body: $scope.commentParams.body,
+      postId: $stateParams.postId,
+      vote : 0
     })
     .then(function(response){
-      $scope.post.comments.unshift(response);
-      $scope.commentParams.author = "";
-      $scope.commentParams.body = "";
+      $scope.commentParams = {};
     })
   }
   
